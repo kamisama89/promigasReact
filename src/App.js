@@ -5,17 +5,18 @@ import Vista from './components/Vista';
 import { GestionProductos } from './components/GestionProductos';
 import { ModificarGasCorriente } from './components/ModificarGasCorriente';
 import { ModificarGasExtra } from './components/ModificarGasExtra';
+import CargarCuenta from './components/CargarCuenta';
 
 function App() {
   return (
     <>
       <Vista />
-      <TablaListadoVehiculo />
-      {/* <GestionProductos/> */}
+      {/* <TablaListadoVehiculo /> */}
+      {/* {<GestionProductos/>} */}
       {/* <GestionProductos/> */}
       {/* <ModificarGasCorriente/> */}
       {/* <ModificarGasExtra/> */}
-
+      {/* <CargarCuenta/> */}
 
     </>
   );
