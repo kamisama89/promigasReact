@@ -12,7 +12,9 @@ import Registro from './components/Registro';
 function App() {
   return (
     <>
-      <Login/>     
+      <Vista/> 
+      <Inicio/>     
+        
       
      
       {/*<Login />*/}

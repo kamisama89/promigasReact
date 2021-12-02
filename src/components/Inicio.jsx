@@ -4,14 +4,13 @@ import torre from '../imagenes/torre.jpg';
 
 export function Inicio(){
     return(
-      <> 
-         <header>
-         <body
-          style={{backgroundImage: "url(" + require("../imagenes/torre.jpg").default + ")"}}
-          > </body>
-           
-           </header> 
+      <>
+      
+       
+        <div className= ""
+        style={{backgroundImage: "url(" + require("../imagenes/torre.jpg").default + ")"}} 
         
+        > 
 
               <nav className="navbar navbar-expand-lg navbar-">
                   <div className="container-fluid">             
@@ -25,8 +24,9 @@ export function Inicio(){
                     </div>
                   </div>
                 </nav>
-        
-     </>  
+        </div> 
+    
+     </> 
 )
 }
 export default Inicio;
