@@ -6,12 +6,18 @@ import { GestionProductos } from './components/GestionProductos';
 import { ModificarGasCorriente } from './components/ModificarGasCorriente';
 import { ModificarGasExtra } from './components/ModificarGasExtra';
 import CargarCuenta from './components/CargarCuenta';
-
+import Inicio from './components/Inicio';
+import Login from './components/Login';
+import Registro from './components/Registro';
 function App() {
   return (
     <>
-      <Vista />
-      {/* <TablaListadoVehiculo /> */}
+      <Login/>     
+      
+     
+      {/*<Login />*/}
+      {/*<Registro />*/}
+      {/*<TablaListadoVehiculo />*/}
       {/* {<GestionProductos/>} */}
       {/* <GestionProductos/> */}
       {/* <ModificarGasCorriente/> */}
