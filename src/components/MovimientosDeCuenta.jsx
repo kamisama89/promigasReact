@@ -1,6 +1,6 @@
 import React from "react";
 
-function MovimientosDe_Cuenta(){
+export function MovimientosDeCuenta(){
 
     return(
         <>
@@ -14,7 +14,7 @@ function MovimientosDe_Cuenta(){
                         Movimientos mas recientes de su cuenta.
                     </h3>
                 </div>
-                <div className="row m-1 mr-1">
+                <div className="row m-4">
                     <div className="col-sm-11 bg-primary text-white ">
                         <p>
                         No tiene movimientos recientes...
@@ -71,4 +71,3 @@ function MovimientosDe_Cuenta(){
         </>
     )
 }
-export default MovimientosDe_Cuenta;

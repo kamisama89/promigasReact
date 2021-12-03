@@ -4,7 +4,7 @@ import TablaListadoVehiculo from './components/ListadoVehiculos';
 import Vista from './components/Vista';
 import { GestionProductos } from './components/GestionProductos';
 import { TanquearVehiculo } from './components/TanquearVehiculo';
-import { MovimientosDe_Cuenta } from './components/MovimientosDe_Cuenta';
+import { MovimientosDeCuenta } from './components/MovimientosDeCuenta';
 import { ModificarGasCorriente } from './components/ModificarGasCorriente';
 import { ModificarGasExtra } from './components/ModificarGasExtra';
 import CargarCuenta from './components/CargarCuenta';
@@ -22,7 +22,7 @@ function App() {
       {/*<Login />*/}
       {/*<Registro />*/}
       {/*<TanquearVehiculo />*/}
-      {/*<MovimientosDe_Cuenta />*/}
+      {/*<MovimientosDeCuenta />*/}
       {/*<TablaListadoVehiculo />*/}
       {/* {<GestionProductos/>} */}
       {/* <GestionProductos/> */}
