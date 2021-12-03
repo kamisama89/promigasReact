@@ -3,6 +3,7 @@ import './App.css';
 import TablaListadoVehiculo from './components/ListadoVehiculos';
 import Vista from './components/Vista';
 import { GestionProductos } from './components/GestionProductos';
+import { TanquearVehiculo } from './components/TanquearVehiculo';
 import { ModificarGasCorriente } from './components/ModificarGasCorriente';
 import { ModificarGasExtra } from './components/ModificarGasExtra';
 import CargarCuenta from './components/CargarCuenta';
@@ -19,6 +20,7 @@ function App() {
      
       {/*<Login />*/}
       {/*<Registro />*/}
+      {/*<TanquearVehiculo />*/}
       {/*<TablaListadoVehiculo />*/}
       {/* {<GestionProductos/>} */}
       {/* <GestionProductos/> */}
