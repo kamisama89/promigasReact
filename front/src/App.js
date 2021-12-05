@@ -19,15 +19,15 @@ function App() {
         
       
      
-      {/*<Login />*/}
-      {/*<Registro />*/}
-      {/*<TanquearVehiculo />*/}
-      {/*<MovimientosDeCuenta />*/}
-      {/*<TablaListadoVehiculo />*/}
-      {/* {<GestionProductos/>} */}
-      {/* <GestionProductos/> */}
-      {/* <ModificarGasCorriente/> */}
-      {/* <ModificarGasExtra/> */}
+      {/* <Login /> */}
+      {/* <Registro /> */}
+      {/* <TanquearVehiculo /> */}
+      {/* <MovimientosDeCuenta />
+      <TablaListadoVehiculo /> */}
+      {/* <GestionProductos/>
+      <GestionProductos/> */}
+      {/* <ModificarGasCorriente/>
+      <ModificarGasExtra/> */}
       {/* <CargarCuenta/> */}
 
     </>
