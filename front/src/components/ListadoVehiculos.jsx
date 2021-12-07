@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Container, Row, Table } from "react-bootstrap";
+
 
 const Vehiculos = ({ id, placa, modelo }) =>
 
@@ -19,13 +19,13 @@ function TablaListadoVehiculo() {
 
 
     const listavehiculos = [
-        { id: 1, placa: 'Placa1', modelo: 'Modelo1' },
+        { id: 1, placa: 'HQR-435', modelo: 'MAZDA-2002' },
         { id: 2, placa: 'Placa2', modelo: 'Modelo2' },
         { id: 3, placa: 'Placa3', modelo: 'Modelo3' },
         { id: 4, placa: 'Placa4', modelo: 'Modelo4' }
     ]
 
-    const listadoVehiculo = listado => listavehiculos.map(e => (
+    const listadoVehiculo = () => listavehiculos.map(e => (
         <Vehiculos key={e.id} id={e.id} placa={e.placa} modelo={e.modelo} />
 
     ));

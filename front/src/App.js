@@ -15,15 +15,13 @@ function App() {
   return (
     <>
       <Vista/> 
-      <Inicio/>     
-        
-      
-     
+      {/* <Inicio/>   */}   
+                 
       {/* <Login /> */}
       {/* <Registro /> */}
       {/* <TanquearVehiculo /> */}
-      {/* <MovimientosDeCuenta />
-      <TablaListadoVehiculo /> */}
+      <MovimientosDeCuenta />
+      <TablaListadoVehiculo />
       {/* <GestionProductos/>
       <GestionProductos/> */}
       {/* <ModificarGasCorriente/>
