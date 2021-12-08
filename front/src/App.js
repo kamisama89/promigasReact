@@ -11,23 +11,21 @@ import CargarCuenta from './components/CargarCuenta';
 import Inicio from './components/Inicio';
 import Login from './components/Login';
 import Registro from './components/Registro';
+import { Usuarios } from './components/Usuarios';
 function App() {
   return (
     <>
       <Vista/> 
-      {/* <Inicio/>      */}
-        
-      
-     
+      <Inicio/>
       {/* <Login /> */}
       {/* <Registro /> */}
       {/* <TanquearVehiculo /> */}
-      <MovimientosDeCuenta />
+      {/* <MovimientosDeCuenta /> */}
+      {/* <Usuarios/> */}
       {/* <TablaListadoVehiculo /> */}
-      {/* <GestionProductos/>
-      <GestionProductos/> */}
-      {/* <ModificarGasCorriente/>
-      <ModificarGasExtra/> */}
+      {/* <GestionProductos/> */}
+      {/* <ModificarGasCorriente/> */}
+      {/* <ModificarGasExtra/>  */}
       {/* <CargarCuenta/> */}
 
     </>
