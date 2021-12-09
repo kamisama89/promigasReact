@@ -1,5 +1,4 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
 
 const Vehiculos = ({ id, placa, modelo }) =>
 
@@ -13,22 +12,28 @@ const Vehiculos = ({ id, placa, modelo }) =>
 
     ;
 
-
-
 function TablaListadoVehiculo() {
 
+    const [lista, setLista] = useState([]);
 
-    const listavehiculos = [
-        { id: 1, placa: 'HQR-435', modelo: 'MAZDA-2002' },
-        { id: 2, placa: 'Placa2', modelo: 'Modelo2' },
-        { id: 3, placa: 'Placa3', modelo: 'Modelo3' },
-        { id: 4, placa: 'Placa4', modelo: 'Modelo4' }
-    ]
 
-    const listadoVehiculo = () => listavehiculos.map(e => (
-        <Vehiculos key={e.id} id={e.id} placa={e.placa} modelo={e.modelo} />
+    useEffect(() => {
+        const peticion = async () => {
+            const data = await consumir();
+            setLista(data);
+        }
+        peticion();
+    }, [])
 
-    ));
+
+
+    async function consumir() {
+        const ruta = `http://localhost:8080/listavehiculo`;
+        const result = await fetch(ruta);
+        return await result.json()
+    }
+
+
     return <>
 
         <main className="container">
@@ -44,7 +49,11 @@ function TablaListadoVehiculo() {
                                         <th scope="col">Modelo</th>
                                     </tr>
                                 </thead>
-                                {listadoVehiculo(listavehiculos)}
+                                {
+                                    lista.map((e) => 
+                                    <Vehiculos key={e.id} id={e.id} placa={e.placa} modelo={e.modelo}/>
+                                    )
+                                }
                             </table>
                         </div>
 
@@ -55,27 +64,27 @@ function TablaListadoVehiculo() {
                         <div className="col p-4 d-flex flex-column position-static">
                             <h2 className="d-inline-block mb-3">Registrar Vehiculo</h2>
 
-                            <h5 className="d-inline-block mb-0 text-success" style={{color: "black"}}>Placa:</h5>
+                            <h5 className="d-inline-block mb-0 text-success" style={{ color: "black" }}>Placa:</h5>
                             <div className="mb-2 text-muted">
-                                <textarea name="" id="" cols="15" rows="1" style={{backgroundcolor: "rgba(255, 196, 0, 0.815)"}}></textarea>
+                                <textarea name="" id="" cols="15" rows="1" style={{ backgroundcolor: "rgba(255, 196, 0, 0.815)" }}></textarea>
                             </div>
 
-                            <h5 className="d-inline-block mb-0 text-success" style={{color: "black"}}>Modelo:</h5>
+                            <h5 className="d-inline-block mb-0 text-success" style={{ color: "black" }}>Modelo:</h5>
                             <div className="mb-2 text-muted">
-                                <textarea name="" id="" cols="15" rows="1" style={{backgroundcolor: "rgba(255, 196, 0, 0.815)"}}></textarea>
+                                <textarea name="" id="" cols="15" rows="1" style={{ backgroundcolor: "rgba(255, 196, 0, 0.815)" }}></textarea>
                             </div>
 
-                            <button type="button" className="btn btn-warning btn-sm" style={{backgroundColor: "rgba(255, 196, 0, 0.815)"}}>Registrar</button>
+                            <button type="button" className="btn btn-warning btn-sm" style={{ backgroundColor: "rgba(255, 196, 0, 0.815)" }}>Registrar</button>
                         </div>
 
                         <div className="col p-4 d-flex flex-column position-static">
                             <h2 className="d-inline-block mb-3">Eliminar Vehiculo</h2>
 
-                            <h5 className="d-inline-block mb-0 text-success" style={{color: "black"}}>ID:</h5>
+                            <h5 className="d-inline-block mb-0 text-success" style={{ color: "black" }}>ID:</h5>
                             <div className="mb-2 text-muted">
-                                <textarea name="" id="" cols="15" rows="1" style={{backgroundcolor: "rgba(255, 196, 0, 0.815)"}}></textarea>
+                                <textarea name="" id="" cols="15" rows="1" style={{ backgroundcolor: "rgba(255, 196, 0, 0.815)" }}></textarea>
                             </div>
-                            <button type="button" className="btn btn-warning btn-sm" style={{backgroundColor: "rgba(255, 196, 0, 0.815)"}}>Eliminar</button>
+                            <button type="button" className="btn btn-warning btn-sm" style={{ backgroundColor: "rgba(255, 196, 0, 0.815)" }}>Eliminar</button>
                         </div>
                     </div>
                 </div>
