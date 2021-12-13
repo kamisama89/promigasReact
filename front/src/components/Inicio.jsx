@@ -1,5 +1,6 @@
 import React from "react";
 import { Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import torre from '../imagenes/torre.jpg';
 
 
@@ -17,8 +18,8 @@ export function Inicio(){
                   <div className="container-fluid">             
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                       <div className="navbar-nav">
-                        <a className="nav-link active" aria-current="page" href="#">Home</a>
-                        <a className="nav-link active" href="#">Productos</a>
+                        <Link to="/" className="nav-link active" aria-current="page">Home</Link>
+                        <a className="nav-link active" href="/">Productos</a>
                         <a className="nav-link active" href="#">Usuarios</a>
                         <a className="nav-link active" href="#" tabindex="-1" aria-disabled="true">Costos</a>
                       </div>

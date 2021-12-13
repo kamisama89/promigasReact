@@ -6,6 +6,7 @@ app.use(express.json()); //Middleware
 app.use(express.urlencoded({extended:true}))
 const {vehiculo} = require("./vehiculos")
 
+
 //API HOME function es un "callback"
 app.get("/", function (req, res){
     res.send("Bienvenidos");

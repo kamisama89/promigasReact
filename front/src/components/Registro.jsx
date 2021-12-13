@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export function registro(){
     return(
@@ -11,7 +12,7 @@ export function registro(){
                 <div className="col-12 col-md-8 col-lg-6 col-xl-5">
                   <div  className="card  text-white" style={{backgroundColor: "#0060fc"}}>
                     <div className="card-body p-5 text-center">
-                        <a href="/ingreso" className="text-white-50 fw-bold">Regresar</a>
+                        <Link to="/" className="text-white-50 fw-bold">Regresar</Link>
                      
                         <div className="mb-md-5 mt-md-4 pb-5">
           
