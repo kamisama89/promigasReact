@@ -1,5 +1,6 @@
 import React from "react";
 import logo from '../imagenes/logopromigas.png';
+import { Dropdown } from "react-bootstrap";
 
 
 function Vista() {
@@ -12,16 +13,16 @@ function Vista() {
                     </a>
                 </div>
                 <div class="col-lg-1 align-self-center">
-                <Dropdown>
-                    <Dropdown.Toggle variant="warning" id="dropdown-basic">
-                        Menu
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                        <Dropdown.Item href="/login">Sign In</Dropdown.Item>
-                        <Dropdown.Item href="/tablalistadovehiculo">Vehiculos</Dropdown.Item>
-                        <Dropdown.Item href="/registro">Sign Up</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown>
+                    <Dropdown>
+                        <Dropdown.Toggle variant="warning" id="dropdown-basic">
+                            Menu
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            <Dropdown.Item href="/login">Sign In</Dropdown.Item>
+                            <Dropdown.Item href="/tablalistadovehiculo">Vehiculos</Dropdown.Item>
+                            <Dropdown.Item href="/registro">Sign Up</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
                 </div>
             </nav>            
         </header>
