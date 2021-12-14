@@ -12,7 +12,16 @@ function Vista() {
                     </a>
                 </div>
                 <div class="col-lg-1 align-self-center">
-                    <button type="button" class="btn btn-warning">Menu</button>
+                <Dropdown>
+                    <Dropdown.Toggle variant="warning" id="dropdown-basic">
+                        Menu
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                        <Dropdown.Item href="/login">Sign In</Dropdown.Item>
+                        <Dropdown.Item href="/tablalistadovehiculo">Vehiculos</Dropdown.Item>
+                        <Dropdown.Item href="/registro">Sign Up</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
                 </div>
             </nav>            
         </header>
