@@ -1,7 +1,31 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
-export function registro(){
+export function Registro(){
+    const [refresh, setRefresh] = useState(false);    
+    const [success, setSuccess] = useState(false);
+    const nomRef = useRef();
+    const ccRef = useRef();
+    const placaRef = useRef();
+    const passRef = useRef();
+    const guardar = () => {
+        // Captura los datos de las cajas de texto
+        const nom = nomRef.current.value;
+        const cc = ccRef.current.value;
+        const placa = placaRef.current.value;
+        const pass = passRef.current.value;
+        fetch("../back/src/guardar", {
+            headers: { "content-type": "application/json" },
+            method: "POST",
+            body: JSON.stringify({ nom, cc, placa, pass })
+        }).then(res => res.json())
+            .then(res => {
+                setRefresh(!setRefresh);
+                alert(res.msg)
+              })
+            }  
+      
+    
     return(
         <>
         <main>       
@@ -19,26 +43,26 @@ export function registro(){
                         <h2 className="fw-bold mb-2 text-uppercase">Registro</h2>
                         <p className="text-black-50 mb-5">por favor llena los datos!</p>
                         <div className="form-outline form-dark mb-4">
-                            <input type="text" name="nombre" id="typeTextX" className="form-control form-control-lg" />
+                            <input ref={nomRef} type="text" name="nombre" id="typeTextX" className="form-control form-control-lg" />
                             <label className="form-label" for="typeTextX">Nombre</label>
                           </div>
             
                         <div className="form-outline form-white mb-4">
-                          <input type="text" name="email" id="typeEmailX" className="form-control form-control-lg" />
+                          <inputv ref={ccRef} type="text" name="email" id="typeEmailX" className="form-control form-control-lg" />
                           <label className="form-label" for="typeEmailX">CC</label>
                         </div>
                         <div className="form-outline form-white mb-4">
-                            <input type="text" name="direccion" id="typeTextX" className="form-control form-control-lg" />
+                            <input ref={placaRef} type="text" name="direccion" id="typeTextX" className="form-control form-control-lg" />
                             <label className="form-label"  for="typeTextX">Placa</label>
                           </div>
     
                           <div className="form-outline form-white mb-4">
-                          <input type="password" name="pass" id="typePasswordX" className="form-control form-control-lg" />
+                          <input ref={passRef} type="password" name="pass" id="typePasswordX" className="form-control form-control-lg" />
                           <label className="form-label" for="typePasswordX">Password</label>
                         </div>
                         
           
-                        <button className="btn btn-outline-light btn-lg px-5" type="submit" id="send-signup" name="signup">Guardar</button>
+                        <button className="btn btn-outline-light btn-lg px-5" type="button" onClick={guardar} id="send-signup" name="signup">Guardar</button>
                             <div>
                             </div>
           
@@ -60,4 +84,4 @@ export function registro(){
                </>
     )
 }
-export default registro;
+export default Registro;

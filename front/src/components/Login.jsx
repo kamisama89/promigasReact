@@ -1,8 +1,31 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 
-export function login(){
+
+export function Login(){
+  const [error, setError] = useState();
+  const [msgError, setMsgError] = useState();
+  const ccRef = useRef();
+  const passwordRef = useRef();
+  function login() {
+      const usuario = ccRef.current.value;
+      const password = passwordRef.current.value;
+      fetch("../back/src", {
+          headers: { "content-type": "application/json" },
+          method: "POST",
+          body: JSON.stringify({ usuario, password })
+      }).then(res => res.json())
+          .then(res => {
+              if (res.estado === "ok") {
+                  { window.location.href = "/inicio" }
+              } else {
+                  setError(true);
+                  setMsgError(res.msg);
+              }
+          })
+  }
     return(
         <>
+        {error && <div className="alert alert-danger" role="alert">{msgError}</div>}
         <main>
           <form action="" method="post">    
             <section className="vh-100 gradient-custom">
@@ -19,18 +42,18 @@ export function login(){
                         <p className="text-black-50 mb-5">por favor llena los datos!</p>
                        
                         <div className="form-outline form-white mb-4">
-                          <input type="text" name="email" id="typeEmailX" className="form-control form-control-lg" />
+                          <input ref={ccRef} type="text" name="cc" id="typeEmailX" className="form-control form-control-lg" />
                           <label className="form-label" for="typeEmailX">CC</label>
                         </div>
                        
     
                           <div className="form-outline form-white mb-4">
-                          <input type="password" name="pass" id="typePasswordX" className="form-control form-control-lg" />
+                          <input ref={passwordRef} type="password" name="pass" id="typePasswordX" className="form-control form-control-lg" />
                           <label className="form-label" for="typePasswordX">Password</label>
                         </div>
                         
           
-                        <button className="btn btn-outline-light btn-lg px-5" type="submit" id="send-signup" name="signup">Entrar</button>
+                        <button className="btn btn-outline-light btn-lg px-5" type="button" onClick={login} id="send-signup" name="signup">Entrar</button>
                             <div>
                             </div>
           
@@ -53,4 +76,4 @@ export function login(){
         </>
     )
 }
-export default login;
+export default Login;
