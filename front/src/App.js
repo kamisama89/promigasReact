@@ -19,7 +19,6 @@ import { Usuarios } from './components/Usuarios';
 
 function App() {
   return (
-
     <>
     <Vista/>
       <BrowserRouter>
