@@ -16,10 +16,10 @@ import Inicio from './components/Inicio';
 import Login from './components/Login';
 import Registro from './components/Registro';
 import { Usuarios } from './components/Usuarios';
+import RegistroVehiculo from './components/RegistroVehiculos';
 
 function App() {
   return (
-
     <>
     <Vista/>
       <BrowserRouter>
@@ -48,7 +48,10 @@ function App() {
           <Route exact path="/listadovehiculos" element={<TablaListadoVehiculo/>}/>
         </Routes>
         <Routes>
-          <Route exact path="/registro" element={<Registro/>}/>
+          <Route path="/vehiculos/guardar" element={<RegistroVehiculo/>}/>
+        </Routes>
+        <Routes>
+          <Route path="/registro" element={<Registro/>}/>
         </Routes>
         <Routes>
           <Route exact path="/usuarios" element={<Usuarios/>}/>
