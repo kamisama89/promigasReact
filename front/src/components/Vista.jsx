@@ -1,20 +1,30 @@
 import React from "react";
 import logo from '../imagenes/logopromigas.png';
+import { Dropdown } from "react-bootstrap";
 
 
 function Vista() {
     return <>
         <header >
-            <nav className="navbar navbar-dark bg-primary" style={{ backgroundcolor: "blue" }}>
-                <div className="container">
-                    <a className="navbar-brand" href="#">
+            <nav class="navbar navbar-dark bg-primary" style={{ backgroundcolor: "blue" }}>
+                <div class="container">
+                    <a class="navbar-brand" href="#">
                         <img className="imglogo" src={logo} width="30%" />
                     </a>
                 </div>
-                <div className="col-lg-1 align-self-center">
-                    <button type="button" class="btn btn-warning">Menu</button>
+                <div class="col-lg-1 align-self-center">
+                    <Dropdown>
+                        <Dropdown.Toggle variant="warning" id="dropdown-basic">
+                            Menu
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            <Dropdown.Item href="/login">Sign In</Dropdown.Item>
+                            <Dropdown.Item href="/tablalistadovehiculo">Vehiculos</Dropdown.Item>
+                            <Dropdown.Item href="/registro">Sign Up</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
                 </div>
-            </nav>            
+            </nav>
         </header>
     </>
 }

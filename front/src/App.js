@@ -24,34 +24,37 @@ function App() {
     <Vista/>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Inicio/>}/>
+          <Route exact path="/" element={<Inicio/>}/>
         </Routes>
         <Routes>
-          <Route path="/cargarcuenta" element={<CargarCuenta/>}/>
+          <Route exact path="/cargarcuenta" element={<CargarCuenta/>}/>
         </Routes>
         <Routes>
-          <Route path="/gestionproductos" element={<GestionProductos/>}/>
+          <Route exact path="/gestionproductos" element={<GestionProductos/>}/>
         </Routes>
         <Routes>
-          <Route path="/login" element={<Login/>}/>
+          <Route exact path="/login" element={<Login/>}/>
         </Routes>
         <Routes>
-          <Route path="/modificargascorriente" element={<ModificarGasCorriente/>}/>
+          <Route exact path="/modificargascorriente" element={<ModificarGasCorriente/>}/>
         </Routes>
         <Routes>
-          <Route path="/modificargasextra" element={<ModificarGasExtra/>}/>
+          <Route exact path="/modificargasextra" element={<ModificarGasExtra/>}/>
         </Routes>
         <Routes>
-          <Route path="/movimientosdecuenta" element={<MovimientosDeCuenta/>}/>
+          <Route exact path="/movimientosdecuenta" element={<MovimientosDeCuenta/>}/>
         </Routes>
         <Routes>
-          <Route path="/tablalistadovehiculo" element={<TablaListadoVehiculo/>}/>
+          <Route exact path="/listadovehiculos" element={<TablaListadoVehiculo/>}/>
         </Routes>
         <Routes>
-          <Route path="/registro" element={<Registro/>}/>
+          <Route exact path="/registro" element={<Registro/>}/>
         </Routes>
         <Routes>
-          <Route path="/usuarios" element={<Usuarios/>}/>
+          <Route exact path="/usuarios" element={<Usuarios/>}/>
+        </Routes>
+        <Routes>
+          <Route exact path="/tanquearvehiculo" element={<TanquearVehiculo />}/>
         </Routes>
       </BrowserRouter>
 
