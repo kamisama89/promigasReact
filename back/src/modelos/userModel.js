@@ -12,8 +12,8 @@ const userSchema = new Schema({
         required: true,
         min: 6
     },
-    rol: {
-        type: "string",
+    cc: {
+        type: "int",
         required: true
     }
 });
