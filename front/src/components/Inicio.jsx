@@ -18,10 +18,9 @@ export function Inicio(){
                   <div className="container-fluid">             
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                       <div className="navbar-nav">
-                        <Link to="/" className="nav-link active" aria-current="page">Home</Link>
-                        <a className="nav-link active" href="/">Productos</a>
-                        <a className="nav-link active" href="#">Usuarios</a>
-                        <a className="nav-link active" href="#" tabindex="-1" aria-disabled="true">Costos</a>
+                        <a target="_blank" className="nav-link active" href="https://www.promigas.com/">Promigas.com</a>
+                        <Link to="/usuarios" className="nav-link active">Usuarios</Link>
+                        <Link to="/tanquearvehiculo" className="nav-link active">Tanquear Vehiculo</Link>
                       </div>
                     </div>
                   </div>

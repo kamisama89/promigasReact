@@ -18,9 +18,9 @@ function Vista() {
                             Menu
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
-                            <Dropdown.Item href="/login">Sign In</Dropdown.Item>
-                            <Dropdown.Item href="/tablalistadovehiculo">Vehiculos</Dropdown.Item>
-                            <Dropdown.Item href="/registro">Sign Up</Dropdown.Item>
+                            <Dropdown.Item href="/">Volver al Inicio</Dropdown.Item>
+                            <Dropdown.Item href="/login">Inicia Sesion</Dropdown.Item>
+                            <Dropdown.Item href="/registro">Registrate</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                 </div>
