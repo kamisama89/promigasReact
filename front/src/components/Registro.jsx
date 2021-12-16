@@ -6,18 +6,17 @@ export function Registro(){
     const [success, setSuccess] = useState(false);
     const nomRef = useRef();
     const ccRef = useRef();
-    const placaRef = useRef();
     const passRef = useRef();
     const guardar = () => {
         // Captura los datos de las cajas de texto
+        const hostBase = "http://localhost:8080";
         const nom = nomRef.current.value;
         const cc = ccRef.current.value;
-        const placa = placaRef.current.value;
-        const pass = passRef.current.value;
-        fetch("../back/src/guardar", {
+        const passwond = passRef.current.value;
+        fetch(`${hostBase}/user/save`, {
             headers: { "content-type": "application/json" },
             method: "POST",
-            body: JSON.stringify({ nom, cc, placa, pass })
+            body: JSON.stringify({ nom, cc, passwond })
         }).then(res => res.json())
             .then(res => {
                 setRefresh(!setRefresh);
@@ -51,10 +50,7 @@ export function Registro(){
                           <inputv ref={ccRef} type="text" name="email" id="typeEmailX" className="form-control form-control-lg" />
                           <label className="form-label" for="typeEmailX">CC</label>
                         </div>
-                        <div className="form-outline form-white mb-4">
-                            <input ref={placaRef} type="text" name="direccion" id="typeTextX" className="form-control form-control-lg" />
-                            <label className="form-label"  for="typeTextX">Placa</label>
-                          </div>
+                        
     
                           <div className="form-outline form-white mb-4">
                           <input ref={passRef} type="password" name="pass" id="typePasswordX" className="form-control form-control-lg" />

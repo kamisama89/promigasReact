@@ -7,13 +7,16 @@ app.use(express.urlencoded({extended:true}))
 const {vehiculo} = require("./vehiculos");
 const mongoose = require("mongoose");
 const {vehiculoModel}=require("./modelos/vehiculosModel")
-
+const { userRutas } = require("./rutas/userRutas");
 
 require("dotenv").config();
 //API HOME function es un "callback"
 app.get("/", function (req, res){
     res.send("Bienvenidos");
 });
+
+app.use("/user", userRutas);
+
 
 //API consultar lista vehiculo
 
