@@ -9,8 +9,10 @@ export function Login(){
   function login() {
       const usuario = ccRef.current.value;
       const password = passwordRef.current.value;
-      fetch("../back/src", {
-          headers: { "content-type": "application/json" },
+      const hostBase = "http://localhost:8080";
+
+      fetch(`${hostBase}/user/login`, {
+        headers: { "content-type": "application/json" },
           method: "POST",
           body: JSON.stringify({ usuario, password })
       }).then(res => res.json())

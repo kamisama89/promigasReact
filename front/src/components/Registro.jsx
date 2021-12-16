@@ -13,7 +13,7 @@ export function Registro(){
         const nom = nomRef.current.value;
         const cc = ccRef.current.value;
         const passwond = passRef.current.value;
-        fetch(`${hostBase}/usuarios/guardar`, {
+        fetch(`${hostBase}/user/save`, {
             headers: { "content-type": "application/json" },
             method: "POST",
             body: JSON.stringify({ nom, cc, passwond })
