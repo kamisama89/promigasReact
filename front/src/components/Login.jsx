@@ -7,19 +7,20 @@ export function Login(){
   const [msgError, setMsgError] = useState();
   const ccRef = useRef();
   const passwordRef = useRef();
+
   function login() {
-      const usuario = ccRef.current.value;
+      const cc = ccRef.current.value;
       const password = passwordRef.current.value;
       const hostBase = "http://localhost:8080";
 
       fetch(`${hostBase}/user/login`, {
         headers: { "content-type": "application/json" },
           method: "POST",
-          body: JSON.stringify({ usuario, password })
+          body: JSON.stringify({ cc, password })
       }).then(res => res.json())
           .then(res => {
               if (res.estado === "ok") {
-                  { window.location.href = "/inicio" }
+                  { window.location.href = "/listadovehiculos" }
               } else {
                   setError(true);
                   setMsgError(res.msg);

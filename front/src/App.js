@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import logo from './logo.svg';
 import './App.css';
 
 import Vista from './components/Vista';
@@ -51,7 +50,7 @@ function App() {
           <Route path="/vehiculos/guardar" element={<RegistroVehiculo/>}/>
         </Routes>
         <Routes>
-          <Route path="/registro" element={<Registro/>}/>
+          <Route path="/save" element={<Registro/>}/>
         </Routes>
         <Routes>
           <Route exact path="/usuarios" element={<Usuarios/>}/>

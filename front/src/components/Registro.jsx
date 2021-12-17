@@ -10,13 +10,13 @@ export function Registro(){
     const guardar = () => {
         // Captura los datos de las cajas de texto
         const hostBase = "http://localhost:8080";
-        const nom = nomRef.current.value;
+        const usuario = nomRef.current.value;
         const cc = ccRef.current.value;
-        const passwond = passRef.current.value;
+        const password = passRef.current.value;
         fetch(`${hostBase}/user/save`, {
             headers: { "content-type": "application/json" },
             method: "POST",
-            body: JSON.stringify({ nom, cc, passwond })
+            body: JSON.stringify({ usuario, cc, password })
         }).then(res => res.json())
             .then(res => {
                 setRefresh(!setRefresh);
@@ -47,7 +47,7 @@ export function Registro(){
                           </div>
             
                         <div className="form-outline form-white mb-4">
-                          <inputv ref={ccRef} type="text" name="email" id="typeEmailX" className="form-control form-control-lg" />
+                          <input ref={ccRef} type="text" name="email" id="typeEmailX" className="form-control form-control-lg" />
                           <label className="form-label" for="typeEmailX">CC</label>
                         </div>
                         

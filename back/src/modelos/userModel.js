@@ -13,7 +13,7 @@ const userSchema = new Schema({
         min: 6
     },
     cc: {
-        type: "int",
+        type: "number",
         required: true
     }
 });

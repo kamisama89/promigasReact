@@ -9,6 +9,7 @@ const mongoose = require("mongoose");
 const {vehiculoModel}=require("./modelos/vehiculosModel")
 const { userRutas } = require("./rutas/userRutas");
 
+
 require("dotenv").config();
 //API HOME function es un "callback"
 app.get("/", function (req, res){
@@ -39,18 +40,26 @@ app.post("/vehiculos/guardar", function (req, res) {
 
 })
 
-//API consultar productos
-app.get("/producto/consultar/:name", function(req, res){
-    const name=req.params.name;
-    const prod=productos.find(p=>p.title.toLowerCase()===name.toLowerCase());
-    let mensaje="NO encontrado";
-    let estado="error";
-    if (prod != null && prod!=undefined){
-        mensaje="encontrado";
-        estado="ok";
-    }
-    res.send({estado:estado, msg:mensaje, data:prod});
-})
+app.get("/vehiculos/listar", function (req, res) {
+    vehiculoModel.find({}, function (err, listaVehi) {
+            if (err) {
+                return res.status(500).json({ estado: "error", msg: "ERROR: Al buscar Ventas" });
+            }
+            return res.status(200).json({ estado: "ok", msg: "Ventas encontradas", listaVehi })
+        })
+    })
+
+app.get("/vehiculos/eliminar", function (req, res) {
+    const data = req.body;
+    vehiculoModel.deleteOne({placa: data.placa}, function (err) {
+            if (err) {
+                return res.status(500).json({ estado: "error", msg: "ERROR: Al buscar Ventas" });
+            }
+            return res.status(200).json({ estado: "ok", msg: "Ventas encontradas"})
+        })
+    })
+
+
 
 mongoose.connect(process.env.MONGODB_SERVER_URL)
     .then(res => console.log("Conectado a BD"))

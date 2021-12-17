@@ -7,9 +7,9 @@ const { userGuard } = require("../guards/userGuard");
 
 userRutas.post("/login", async function (req, res) {
     //Capturar usuario / password
-    const { usuario, password } = req.body;
+    const { cc, password } = req.body;
     // Comprobrar el usuario exista en BD
-    const user = await userModel.findOne({ usuario });
+    const user = await userModel.findOne({ cc });
 
     if (!user) {
         return res.status(401).json({ estado: "error", msg: "ERROR: Credenciales inválidas" })
@@ -17,21 +17,21 @@ userRutas.post("/login", async function (req, res) {
     // Comparar la contreña
     const passOK = await compare(password, user.password);
     if (passOK === true) {
-        const token = sign(
-            {
-                usuario: user.usuario,
-                rol: user.rol
-            },
-            process.env.JWT_SECRET_KEY
-        )
-        return res.status(200).json({ estado: "ok", msg: "Logueado", token });
+    // if (passOK === true) {
+    //     const token = sign(
+    //         {
+    //             usuario: user.usuario
+    //         },
+    //         process.env.JWT_SECRET_KEY
+    //     )
+        return res.status(200).json({ estado: "ok", msg: "Loggeado" });
     }
     return res.status(401).json({ estado: "error", msg: "ERROR: Credenciales inválidas" });
     // Dar/denegar acceso
 });
 
 
-userRutas.post("/save", userGuard, function (req, res) {
+userRutas.post("/save", function (req, res) {
     const data = req.body;
     const user = new userModel(data);
     user.save(function (error) {
