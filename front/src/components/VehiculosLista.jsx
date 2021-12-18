@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-export function VehiculosLista(props){
+
+export function VehiculosLista(){
     const [listado, setListado]=useState([]);
 
     useEffect(()=>{
@@ -11,22 +12,20 @@ export function VehiculosLista(props){
         }).then(res=>res.json())
         .then(res=>{
             if (res.estado==="ok")
-            setListado(res.vehi);
+            setListado(res.listaVehi);
         })
-    }, [props.recarga])
+    })
     return(
         <table className="table">
             <thead>
                 <tr>
-                    <th>id</th>
                     <th>Placa</th>
                     <th>Modelo</th>
                 </tr>
             </thead>
             <tbody>
                 {
-                    listado.map(v=> <tr> <td> {v.id}</td>
-                    <td>{v.placa}</td>
+                    listado.map(v=> <tr> <td>{v.placa}</td>
                     <td>{v.modelo}</td></tr>)
                 }
             </tbody>

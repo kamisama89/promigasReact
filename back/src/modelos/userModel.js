@@ -1,5 +1,6 @@
 const { genSalt, hash } = require("bcryptjs");
 const { model, Schema } = require("mongoose");
+const mongooseUniqueValidator = require("mongoose-unique-validator");
 
 const userSchema = new Schema({
     usuario: {
@@ -10,10 +11,12 @@ const userSchema = new Schema({
     password: {
         type: "string",
         required: true,
-        min: 6
+        minlength: 6
+    
     },
     cc: {
-        type: "int",
+        type: "number",
+        unique:true,
         required: true
     }
 });
@@ -25,5 +28,6 @@ userSchema.pre("save", async function (next) {
 });
 
 const userModel = model("users", userSchema);
+userSchema.plugin(mongooseUniqueValidator)
 
 exports.userModel = userModel;
