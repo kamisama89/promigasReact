@@ -1,4 +1,5 @@
 const { model, Schema } = require("mongoose");
+const uniqueValidator = require('mongoose-unique-validator')
 
 const vehiculoSchema = new Schema({
     placa: {
@@ -14,5 +15,5 @@ const vehiculoSchema = new Schema({
 });
 
 const vehiculoModel = model("vehiculos", vehiculoSchema);
-
+vehiculoSchema.plugin(uniqueValidator)
 exports.vehiculoModel = vehiculoModel;
