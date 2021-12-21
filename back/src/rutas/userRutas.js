@@ -16,27 +16,28 @@ userRutas.post("/login", async function (req, res) {
     }
     // Comparar la contreña
     const passOK = await compare(password, user.password);
+
     if (passOK === true) {
-    // if (passOK === true) {
-    //     const token = sign(
-    //         {
-    //             usuario: user.usuario
-    //         },
-    //         process.env.JWT_SECRET_KEY
-    //     )
-        return res.status(200).json({ estado: "ok", msg: "Loggeado" });
+        const token = sign(
+            {
+                usuario: user.usuario,
+                cc: user.cc
+            },
+            process.env.JWT_SECRET_KEY
+        )
+        return res.status(200).json({ estado: "ok", msg: "Loggeado", token, 'url':"/" });
     }
     return res.status(401).json({ estado: "error", msg: "ERROR: Credenciales inválidas" });
     // Dar/denegar acceso
 });
 
 
-userRutas.post("/save", function (req, res) {
+userRutas.post("/save",  function (req, res) {
     const data = req.body;
     const user = new userModel(data);
     user.save(function (error) {
         if (error) {
-            return res.status(500).json({ estado: "error", msg: "ERROR: Usuario NO guardado" });
+            return res.status(500).json({ estado: "error", msg: error });
         }
         res.status(200).json({ estado: "ok", msg: "Usuario Guardado" });
     })

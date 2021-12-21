@@ -1,7 +1,7 @@
 const { verify } = require("jsonwebtoken");
 
 // Se crea un Guardian para denegar/autorizar al usuario
-function userGuard(req, res, next) {
+function userAuthGuard(req, res, next) {
     //Captura la cabecera Authorization
     const { authorization } = req.headers;
     // Se comprueba que tenga la cabecera Authorization
@@ -15,15 +15,15 @@ function userGuard(req, res, next) {
         //Obtiene el payload del token
         const payload = verify(token, process.env.JWT_SECRET_KEY);
         //Verifica el rol del usuario, admite solo "admin"
-        if (payload.cc !== "987123") {
+        if (!payload.usuario) {
             next(res.status(403).json({ estado: "error", msg: "NO autorizado" }));
         }
     } catch (error) {
         console.log(error);
-        next(res.status(500).json({ estado: "error", msg: "Ocurrió un error" }));
+        next(res.status(500).json({ estado: "error", msg: "NO autorizado" }));
     }
     // Pasa a ejecutar la API
     next();
 }
 
-exports.userGuard = userGuard
+exports.userAuthGuard = userAuthGuard

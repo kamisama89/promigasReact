@@ -1,6 +1,7 @@
 import React from "react";
 import { Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import {auth} from '../auth/auth'
 
 
 export function Inicio(){
@@ -18,8 +19,8 @@ export function Inicio(){
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                       <div className="navbar-nav">
                         <a target="_blank" className="nav-link active" href="https://www.petromil.com//">petromil.com</a>
-                        <Link to="/usuarios" className="nav-link active">Usuarios</Link>
-                        <Link to="/tanquearvehiculo" className="nav-link active">Tanquear Vehiculo</Link>
+                        {auth() && <Link to="/usuarios" className="nav-link active">Usuarios</Link>}
+                        {auth() && <Link to="/tanquearvehiculo" className="nav-link active">Tanquear Vehiculo</Link>}
                       </div>
                     </div>
                   </div>
