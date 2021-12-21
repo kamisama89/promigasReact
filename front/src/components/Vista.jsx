@@ -8,9 +8,7 @@ function Vista() {
         <header >
             <nav class="navbar navbar-dark bg-primary" style={{ backgroundcolor: "blue" }}>
                 <div class="container">
-                    <a class="navbar-brand" href="#">
-                        <img className="imglogo" src={logo} width="30%" />
-                    </a>
+                    <img className="imglogo" src={logo} width="30%" />
                 </div>
                 <div class="col-lg-1 align-self-center">
                     <Dropdown>
@@ -21,7 +19,11 @@ function Vista() {
                             <Dropdown.Item href="/">Volver al Inicio</Dropdown.Item>
                             <Dropdown.Item href="/login">Inicia Sesion</Dropdown.Item>
                             <Dropdown.Item href="/save">Registrate</Dropdown.Item>
-                        </Dropdown.Menu>
+                            <Dropdown.Item href="/modificargascorriente">Modificar gas corriente</Dropdown.Item>
+                            <Dropdown.Item href="/modificargasextra">Modificar gas extra</Dropdown.Item>
+                            <Dropdown.Item href="/gestionproductos">Gestionar productos</Dropdown.Item>
+                            <Dropdown.Item href="/usuarios">Usuarios</Dropdown.Item>
+                            </Dropdown.Menu>
                     </Dropdown>
                 </div>
             </nav>
