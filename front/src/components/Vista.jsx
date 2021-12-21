@@ -11,9 +11,7 @@ function Vista() {
         <header >
             <nav class="navbar navbar-dark bg-primary" style={{ backgroundcolor: "blue" }}>
                 <div class="container">
-                    <a class="navbar-brand" href="#">
-                        <img className="imglogo" src={logo} width="30%" />
-                    </a>
+                    <img className="imglogo" src={logo} width="30%" />
                 </div>
                 <div class="col-lg-1 align-self-center">
                     <Dropdown>
