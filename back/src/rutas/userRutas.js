@@ -43,4 +43,15 @@ userRutas.post("/save",  function (req, res) {
     })
 });
 
+userRutas.get("/listar", function (req, res) {
+    userModel.find({}, function (err, usuario) {
+        Producto.populate(ventas, { path: "usuario" }, function (err, usuario) {
+            if (err) {
+                return res.status(500).json({ estado: "error", msg: "ERROR: Al buscar Usuario" });
+            }
+            return res.status(200).json({ estado: "ok", msg: "Usuario encontrado", ventas })
+        })
+    })
+})
+
 exports.userRutas = userRutas;
