@@ -4,6 +4,7 @@ const { userModel } = require("../modelos/userModel");
 const { compare } = require("bcryptjs");
 const { sign } = require("jsonwebtoken");
 const { userGuard } = require("../guards/userGuard");
+const { userAuthGuard } = require("../guards/authGuard");
 
 userRutas.post("/login", async function (req, res) {
     //Capturar usuario / password
@@ -43,14 +44,12 @@ userRutas.post("/save",  function (req, res) {
     })
 });
 
-userRutas.get("/listar", function (req, res) {
-    userModel.find({}, function (err, usuario) {
-        Producto.populate(ventas, { path: "usuario" }, function (err, usuario) {
-            if (err) {
-                return res.status(500).json({ estado: "error", msg: "ERROR: Al buscar Usuario" });
-            }
-            return res.status(200).json({ estado: "ok", msg: "Usuario encontrado", ventas })
-        })
+userRutas.get("/listar", userAuthGuard, function (req, res) {
+    userModel.find({}, function (err, listaUsu) {
+        if (err) {
+            return res.status(500).json({ estado: "error", msg: "ERROR: Al buscar usuarios" });
+        }
+        return res.status(200).json({ estado: "ok", msg: "Usuarios encontradas", listaUsu })
     })
 })
 

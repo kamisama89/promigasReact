@@ -14,8 +14,8 @@ import CargarCuenta from './components/CargarCuenta'
 import Inicio from './components/Inicio';
 import Login from './components/Login';
 import Registro from './components/Registro';
-import { Usuarios } from './components/Usuarios';
 import RegistroVehiculo from './components/RegistroVehiculos';
+import { UsuariosLista } from './components/UsuariosLista';
 
 function App() {
   return (
@@ -53,7 +53,7 @@ function App() {
           <Route path="/save" element={<Registro/>}/>
         </Routes>
         <Routes>
-          <Route exact path="/usuarios" element={<Usuarios/>}/>
+          <Route exact path="/usuarios" element={<UsuariosLista/>}/>
         </Routes>
         <Routes>
           <Route exact path="/tanquearvehiculo" element={<TanquearVehiculo />}/>
