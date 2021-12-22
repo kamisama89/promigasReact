@@ -3,11 +3,12 @@ import React, { useEffect, useState } from "react";
 
 export function VehiculosLista(){
     const [listado, setListado]=useState([]);
+    const token = localStorage.getItem("token");
 
     useEffect(()=>{
         fetch("http://localhost:8080/vehiculos/listar",{
             headers:{
-                "content-type":"application/json"            },
+                "content-type":"application/json", "authorization": `Bearer ${token}`},
             method:"GET"
         }).then(res=>res.json())
         .then(res=>{

@@ -24,7 +24,6 @@ function Vista() {
                             <Dropdown.Item href="/login">Inicia Sesion</Dropdown.Item>
                             <Dropdown.Item href="/save">Registrate</Dropdown.Item>
                             {auth() && <Dropdown.Item href="/listadovehiculos">Listado Vehiculos</Dropdown.Item>}
-                            {auth() && <Dropdown.Item href="/listadovehiculos">Listado Vehiculos</Dropdown.Item>}
                             {auth() && <Dropdown.Item href="/modificargasextra">Modificar Gas Extra</Dropdown.Item>}
                             {auth() && <Dropdown.Item href="/modificargascorriente">Modificar Gas Corriente</Dropdown.Item>}
                             {auth() && <Dropdown.Item href="/movimientosdecuenta">Movimientos de Cuenta</Dropdown.Item>}

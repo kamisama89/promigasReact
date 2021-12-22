@@ -7,9 +7,10 @@ function RegistroVehiculo() {
         const hostBase = "http://localhost:8080";
         const placa = document.getElementById("placa").value;
         const modelo = document.getElementById("modelo").value;
+        const token = localStorage.getItem("token");
         //Realiza la petición al servidor (consumir API)
         fetch(`${hostBase}/vehiculos/guardar`, {
-            headers: { "content-type": "application/json" },
+            headers: { "content-type": "application/json", "authorization": `Bearer ${token}` },
             method: "POST",
             body: JSON.stringify({ placa, modelo })
         }).then(data => data.json())

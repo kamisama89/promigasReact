@@ -9,8 +9,9 @@ function VehiculoEliminar() {
         //Captura los datos de los inputs
         const hostBase = "http://localhost:8080";
         const placa = placaRef.current.value;        //Realiza la petición al servidor (consumir API)
+        const token = localStorage.getItem("token");
         fetch(`${hostBase}/vehiculos/eliminar`, {
-            headers: { "content-type": "application/json" },
+            headers: { "content-type": "application/json", "authorization": `Bearer ${token}` },
             method: "POST",
             body: JSON.stringify({ placa })
             
@@ -23,9 +24,10 @@ function VehiculoEliminar() {
         //Captura los datos de los inputs
         const hostBase = "http://localhost:8080";
         const placa = placaRef.current.value;        
-        const modelo = modeloRef.current.value;        
+        const modelo = modeloRef.current.value; 
+        const token = localStorage.getItem("token");       
         fetch(`${hostBase}/vehiculos/editar`, {
-            headers: { "content-type": "application/json" },
+            headers: { "content-type": "application/json", "authorization": `Bearer ${token}` },
             method: "POST",
             body: JSON.stringify({ placa,modelo })
             
